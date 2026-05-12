@@ -130,6 +130,9 @@ export default function Footer() {
           <p className="font-inter text-[10px] text-[#4a3520]">
             © {new Date().getFullYear()} MOLTO Mi · Wszelkie prawa zastrzeżone
           </p>
+          <p className="font-inter text-[11px] text-[#d4c9b0]/50 tracking-[0.2em] uppercase text-center">
+            Pon–Nd · 12:00 – 20:00 · Brylantowa 16, Wrocław
+          </p>
           <p className="font-inter text-[10px] text-[#4a3520]">
             Wrocław, Polska
           </p>

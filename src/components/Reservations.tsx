@@ -7,28 +7,24 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 const contactDetails = [
   {
     icon: Phone,
-    labelIt: "Telefono",
     label: "Telefon",
     value: "+48 71 000 00 00",
     href: "tel:+48710000000",
   },
   {
     icon: Mail,
-    labelIt: "Email",
     label: "E-mail",
     value: "rezerwacje@moltomi.pl",
     href: "mailto:rezerwacje@moltomi.pl",
   },
   {
     icon: MapPin,
-    labelIt: "Indirizzo",
     label: "Adres",
     value: "ul. Brylantowa 16\n52-214 Wrocław",
     href: "https://maps.google.com/?q=Brylantowa+16+Wroclaw",
   },
   {
     icon: Clock,
-    labelIt: "Orario",
     label: "Godziny",
     value: "Pon – Nd: 12:00 – 20:00",
     href: undefined,
@@ -39,10 +35,44 @@ export default function Reservations() {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const today = new Date().toISOString().split("T")[0];
+
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError("");
+    setLoading(true);
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      date: (form.elements.namedItem("date") as HTMLInputElement).value,
+      guests: (form.elements.namedItem("guests") as HTMLSelectElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      honeypot: (form.elements.namedItem("honeypot") as HTMLInputElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/reservation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok) {
+        setError(json.error ?? "Wystąpił błąd. Spróbuj ponownie.");
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setError("Brak połączenia. Spróbuj ponownie.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -69,7 +99,6 @@ export default function Reservations() {
             planujesz przyjęcie, napisz do nas zawczasu.
           </p>
 
-          {/* Contact details */}
           <div className="space-y-7">
             {contactDetails.map((d, i) => (
               <motion.div
@@ -132,6 +161,16 @@ export default function Reservations() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="border border-[#2e2114] p-8 md:p-10 space-y-5">
+              {/* Honeypot — ukryte przed ludźmi, wypełniane przez boty */}
+              <input
+                type="text"
+                name="honeypot"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute opacity-0 pointer-events-none w-0 h-0"
+              />
+
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block font-inter text-[9px] tracking-[0.28em] uppercase text-[#c4622d] mb-2">
@@ -139,7 +178,9 @@ export default function Reservations() {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
+                    maxLength={80}
                     placeholder="Jan Kowalski"
                     className="w-full bg-[#1a1209] border border-[#2e2114] focus:border-[#c4622d] text-[#f5f0e8] font-inter text-sm px-4 py-3 outline-none transition-colors duration-300 placeholder:text-[#4a3520]"
                   />
@@ -150,6 +191,7 @@ export default function Reservations() {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     required
                     placeholder="+48 000 000 000"
                     className="w-full bg-[#1a1209] border border-[#2e2114] focus:border-[#c4622d] text-[#f5f0e8] font-inter text-sm px-4 py-3 outline-none transition-colors duration-300 placeholder:text-[#4a3520]"
@@ -163,6 +205,7 @@ export default function Reservations() {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   required
                   placeholder="jan@email.pl"
                   className="w-full bg-[#1a1209] border border-[#2e2114] focus:border-[#c4622d] text-[#f5f0e8] font-inter text-sm px-4 py-3 outline-none transition-colors duration-300 placeholder:text-[#4a3520]"
@@ -176,7 +219,9 @@ export default function Reservations() {
                   </label>
                   <input
                     type="date"
+                    name="date"
                     required
+                    min={today}
                     className="w-full bg-[#1a1209] border border-[#2e2114] focus:border-[#c4622d] text-[#f5f0e8] font-inter text-sm px-4 py-3 outline-none transition-colors duration-300"
                   />
                 </div>
@@ -185,6 +230,7 @@ export default function Reservations() {
                     Liczba osób
                   </label>
                   <select
+                    name="guests"
                     required
                     className="w-full bg-[#1a1209] border border-[#2e2114] focus:border-[#c4622d] text-[#f5f0e8] font-inter text-sm px-4 py-3 outline-none transition-colors duration-300"
                   >
@@ -203,17 +249,26 @@ export default function Reservations() {
                   Życzenia specjalne (opcjonalnie)
                 </label>
                 <textarea
+                  name="message"
                   rows={3}
+                  maxLength={500}
                   placeholder="Alergie, urodziny, preferowany stolik..."
                   className="w-full bg-[#1a1209] border border-[#2e2114] focus:border-[#c4622d] text-[#f5f0e8] font-inter text-sm px-4 py-3 outline-none transition-colors duration-300 placeholder:text-[#4a3520] resize-none"
                 />
               </div>
 
+              {error && (
+                <p className="font-inter text-xs text-[#ce4a4a] border border-[#ce4a4a]/30 px-4 py-3">
+                  {error}
+                </p>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-[#c4622d] text-[#f5f0e8] font-inter text-xs tracking-[0.3em] uppercase py-4 hover:bg-[#d4794a] transition-all duration-300 hover:scale-[1.01] active:scale-[0.99]"
+                disabled={loading}
+                className="w-full bg-[#c4622d] text-[#f5f0e8] font-inter text-xs tracking-[0.3em] uppercase py-4 hover:bg-[#d4794a] transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
               >
-                Wyślij zapytanie
+                {loading ? "Wysyłanie..." : "Wyślij zapytanie"}
               </button>
 
               <p className="text-center font-inter text-[10px] text-[#d4c9b0]/50 tracking-wider">
