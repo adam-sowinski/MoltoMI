@@ -102,7 +102,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.7 }}
-          className="absolute bottom-28 left-1/2 -translate-x-1/2 flex items-center gap-6 text-[10px] tracking-[0.25em] uppercase font-inter text-[#d4c9b0]/70"
+          className="mt-10 flex flex-wrap justify-center items-center gap-3 text-[11px] tracking-[0.2em] uppercase font-inter text-[#d4c9b0]/70"
         >
           <span>Pon–Nd</span>
           <span className="block w-4 h-px bg-[#c4622d]/50" />
