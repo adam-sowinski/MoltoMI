@@ -23,7 +23,7 @@ export default function Hero() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('/bg.jpg')",
+              "url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80')",
           }}
         />
         {/* Warm overlay — image is cream so overlay is stronger to keep luxury dark mood */}
@@ -54,7 +54,7 @@ export default function Hero() {
           transition={{ duration: 1.2, delay: 0.35 }}
           className="font-inter text-[11px] uppercase tracking-[0.45em] text-[#c4622d] mb-5"
         >
-          Kuchnia Włoska · Wrocław
+          Kuchnia Włoska
         </motion.p>
 
         <motion.h1
@@ -64,7 +64,7 @@ export default function Hero() {
           className="font-cormorant font-light text-[clamp(3.2rem,9vw,8.5rem)] leading-[0.88] tracking-tight text-[#f5f0e8] mb-8 max-w-4xl"
         >
           Sztuka smaku<br />
-          <em className="text-[#c4622d] not-italic">w sercu Wrocławia</em>
+          <em className="text-[#c4622d] not-italic">na Twoim talerzu</em>
         </motion.h1>
 
         <motion.p
@@ -73,7 +73,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1 }}
           className="font-cormorant text-xl md:text-2xl font-light italic text-[#d4c9b0] mb-10 max-w-lg"
         >
-          Smak Włoch — prosta, autentyczna kuchnia,<br className="hidden md:block" />
+          Prosta, autentyczna kuchnia włoska,<br className="hidden md:block" />
           bogata w kulinarnych doznaniach.
         </motion.p>
 

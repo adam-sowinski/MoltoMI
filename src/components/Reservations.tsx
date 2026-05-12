@@ -8,25 +8,25 @@ const contactDetails = [
   {
     icon: Phone,
     label: "Telefon",
-    value: "+48 71 000 00 00",
-    href: "tel:+48710000000",
+    value: "+48 12 345 67 89",
+    href: "tel:+48123456789",
   },
   {
     icon: Mail,
     label: "E-mail",
-    value: "rezerwacje@moltomi.pl",
-    href: "mailto:rezerwacje@moltomi.pl",
+    value: "rezerwacje@restauracja.pl",
+    href: "mailto:rezerwacje@restauracja.pl",
   },
   {
     icon: MapPin,
     label: "Adres",
-    value: "ul. Brylantowa 16\n52-214 Wrocław",
-    href: "https://maps.google.com/?q=Brylantowa+16+Wroclaw",
+    value: "ul. Przykładowa 1\n00-001 Warszawa",
+    href: "https://maps.google.com/?q=Warszawa",
   },
   {
     icon: Clock,
     label: "Godziny",
-    value: "Pon – Nd: 12:00 – 20:00",
+    value: "Pon – Nd: 12:00 – 22:00",
     href: undefined,
   },
 ];

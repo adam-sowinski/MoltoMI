@@ -23,10 +23,10 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "MOLTO Mi | Kuchnia Włoska Wrocław",
+  title: "Restauracja | Kuchnia Włoska",
   description:
-    "Kuchnia włoska w sercu Wrocławia. MOLTO Mi — prosta, autentyczna, bogata w kulinarnych doznaniach.",
-  keywords: "restauracja, kuchnia włoska, Wrocław, MOLTO Mi, pizza, pasta, risotto",
+    "Kuchnia włoska — prosta, autentyczna, bogata w kulinarnych doznaniach.",
+  keywords: "restauracja, kuchnia włoska, pizza, pasta, risotto",
 };
 
 export default function RootLayout({

@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
 
 const navLinks = [
   { href: "#o-nas", label: "O Nas" },
@@ -39,17 +38,8 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo: circle mark + wordmark PNG side by side */}
           <a href="#" className="group flex items-center gap-3">
-            <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
-              <Image src="/logo.jpg" alt="MOLTO Mi logo" fill className="object-cover" priority />
-            </div>
-            <div className="relative h-10 w-[140px]">
-              <Image
-                src="/drugielogo-removebg-preview.png"
-                alt="Molto Mi – Kuchnia Włoska"
-                fill
-                className="object-contain object-left"
-                priority
-              />
+            <div className="w-10 h-10 rounded-full bg-[#c4622d]/20 border border-[#c4622d]/40 flex items-center justify-center flex-shrink-0 text-2xl">
+              🍕
             </div>
           </a>
 
@@ -106,16 +96,8 @@ export default function Navbar() {
                 transition={{ delay: 0.05 }}
                 className="flex flex-col items-center gap-3 mb-2"
               >
-                <div className="relative w-16 h-16 rounded-full overflow-hidden">
-                  <Image src="/logo.jpg" alt="MOLTO Mi logo" fill className="object-cover" />
-                </div>
-                <div className="relative h-12 w-[200px]">
-                  <Image
-                    src="/drugielogo-removebg-preview.png"
-                    alt="Molto Mi – Kuchnia Włoska"
-                    fill
-                    className="object-contain"
-                  />
+                <div className="w-16 h-16 rounded-full bg-[#c4622d]/20 border border-[#c4622d]/40 flex items-center justify-center text-4xl">
+                  🍕
                 </div>
               </motion.div>
 

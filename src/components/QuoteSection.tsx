@@ -18,7 +18,7 @@ export default function QuoteSection() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/bg.jpg')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80')",
           }}
         />
         <div className="absolute inset-0 bg-[#1a1209]/85" />
@@ -41,7 +41,7 @@ export default function QuoteSection() {
           &ldquo;Gotowanie to miłość, sztuka i wyobraźnia&nbsp;— na jednym talerzu.&rdquo;
         </blockquote>
         <div className="mt-5 font-inter text-[10px] tracking-[0.35em] uppercase text-[#c4622d]">
-          — MOLTO Mi · Kuchnia Włoska
+          — Kuchnia Włoska
         </div>
       </motion.div>
     </section>

@@ -119,7 +119,7 @@ const categories: MenuCategory[] = [
         description: "Kalmary · krewetki · mule · ośmiorniczki · sos pomidorowy · kapary · czerwone wino · czosnek · Pecorino Romano",
         price: "52 zł",
         tag: "Bestseller",
-        image: "https://img02.restaurantguru.com/c6ff-Restaurant-MOLTO-Mi-mussels.jpg",
+        image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=600&q=80",
       },
       {
         name: "Risotto z Kozim Serem",
@@ -197,7 +197,7 @@ const categories: MenuCategory[] = [
         description: "Borowiki · burrata · czosnek · natka pietruszki · prażone migdały · Parmigiano Reggiano",
         price: "46 zł",
         tag: "Polecamy",
-        image: "https://img02.restaurantguru.com/c5bb-Restaurant-MOLTO-Mi-gnocchi.jpg",
+        image: "https://images.unsplash.com/photo-1625944525533-473f1a3d54e7?w=600&q=80",
       },
       {
         name: "Gnocchi z Polędwiczką",
@@ -366,14 +366,6 @@ export default function MenuSection() {
           <p className="font-inter text-[10px] tracking-widest uppercase text-[#d4c9b0]/50">
             Wszystkie składniki świeże i sezonowe · poinformuj nas o alergiach
           </p>
-          <a
-            href="/menu.jpg"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-4 border border-[#c4622d]/50 text-[#c4622d] text-[11px] tracking-[0.25em] uppercase font-inter px-10 py-4 hover:bg-[#c4622d]/10 hover:border-[#c4622d] transition-all duration-300"
-          >
-            Zobacz pełną kartę menu →
-          </a>
         </motion.div>
       </div>
     </section>

@@ -68,7 +68,7 @@ export default function About() {
                 className="h-[480px] bg-cover bg-center"
                 style={{
                   backgroundImage:
-                    "url('https://img02.restaurantguru.com/c62b-Restaurant-MOLTO-Mi-interior.jpg')",
+                    "url('https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=900&q=80')",
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1a1209]/60 to-transparent" />
@@ -88,7 +88,7 @@ export default function About() {
                 ))}
               </div>
               <div className="font-inter text-[9px] tracking-[0.2em] uppercase text-[#f5f0e8]/70 mt-1">
-                148 opinii Google
+                Opinie gości
               </div>
             </motion.div>
 
@@ -104,23 +104,21 @@ export default function About() {
             className="pt-4"
           >
             <p className="font-inter text-[11px] tracking-[0.3em] uppercase text-[#c4622d] mb-4">
-              Od 2023 · Wrocław
+              Nasza kuchnia
             </p>
             <h3 className="font-cormorant text-4xl md:text-5xl font-light text-[#f5f0e8] leading-tight mb-6">
               Inspiracja Włochami<br />
-              <em className="text-[#c4622d] not-italic">na wrocławskim stole</em>
+              <em className="text-[#c4622d] not-italic">na każdym talerzu</em>
             </h3>
             <div className="w-10 h-px bg-[#c4622d] mb-8" />
 
             <p className="font-inter text-sm text-[#d4c9b0] leading-loose mb-5">
-              MOLTO Mi to restauracja zainspirowana kuchnią włoską — prostą, ale
-              dostarczającą bogatych kulinarnych doznań. <em className="text-[#f5f0e8] not-italic">„Molto"</em> po włosku
-              znaczy <em className="text-[#f5f0e8] not-italic">„bardzo"</em> — bo właśnie tak podchodzimy do każdego dania:
-              bardzo starannie, bardzo świeżo, bardzo smacznie.
+              Nasza restauracja zainspirowana jest kuchnią włoską — prostą, ale
+              dostarczającą bogatych kulinarnych doznań. Wierzymy, że najlepsze
+              smaki rodzą się z kilku doskonałych składników.
             </p>
             <p className="font-inter text-sm text-[#d4c9b0] leading-loose mb-10">
-              Działamy od 2023 roku przy ul. Brylantowej 16 we Wrocławiu.
-              Oferujemy śniadania, lunche i kolacje — prawdziwą włoską
+              Oferujemy lunche i kolacje — prawdziwą włoską
               pizzę, makarony, risotto i gnocchi, przygotowywane każdego
               dnia ze świeżych składników.
             </p>
