@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(cp /home/adam/myprojects/moltomi/src/components/drugielogo.png /home/adam/myprojects/moltomi/public/drugielogo.png)",
+      "Bash(convert /home/adam/myprojects/moltomi/public/drugielogo.png -fuzz 10% -transparent white '\\(' +clone -fill white -colorize 100 '\\)' '\\(' -clone 0 -fuzz 25% -fill black +opaque '#c4622d' -fill white -opaque black -alpha off '\\)' -composite '\\(' -clone 0 -fuzz 25% -fill none +opaque '#c4622d' '\\)' -compose Over -composite /home/adam/myprojects/moltomi/public/drugielogo.png)"
+    ]
+  }
+}

@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Italian luxury palette */
+    --terracotta: #c4622d;
+    --terracotta-light: #d4794a;
+    --terracotta-dark: #9e4a1e;
+    --olive: #6b7c4a;
+    --olive-light: #8a9e60;
+    --cream: #f5f0e8;
+    --cream-dark: #e8e0d0;
+    --parchment: #d4c9b0;
+    --espresso: #1a1209;
+    --espresso-mid: #241a0e;
+    --espresso-light: #2e2114;
+    --marble: #f2ede6;
+    --gold: #c9a84c;
+    --gold-light: #e4c76b;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-inter), sans-serif;
+    background-color: var(--espresso);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-cormorant), serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .font-cormorant {
+    font-family: var(--font-cormorant), serif;
+  }
+  .font-nunito {
+    font-family: var(--font-nunito), sans-serif;
+  }
+  .text-terracotta { color: var(--terracotta); }
+  .text-terracotta-light { color: var(--terracotta-light); }
+  .text-olive { color: var(--olive); }
+  .text-cream { color: var(--cream); }
+  .text-parchment { color: var(--parchment); }
+  .bg-terracotta { background-color: var(--terracotta); }
+  .bg-espresso { background-color: var(--espresso); }
+  .bg-espresso-mid { background-color: var(--espresso-mid); }
+  .border-terracotta { border-color: var(--terracotta); }
+
+  .italian-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .italian-divider::before,
+  .italian-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--terracotta));
+  }
+  .italian-divider::after {
+    background: linear-gradient(to left, transparent, var(--terracotta));
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--espresso); }
+::-webkit-scrollbar-thumb { background: var(--terracotta-dark); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--terracotta); }
+
+/* Subtle noise texture overlay for warmth */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
 }
