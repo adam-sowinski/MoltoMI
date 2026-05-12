@@ -1,7 +1,6 @@
 "use client";
 
 import { Share2, Globe } from "lucide-react";
-import Image from "next/image";
 
 const footerLinks = [
   { href: "#o-nas", label: "O Nas" },
@@ -17,12 +16,12 @@ export default function Footer() {
       <div className="bg-[#c4622d] py-4 px-6">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="font-inter text-[10px] tracking-[0.3em] uppercase text-[#f5f0e8] font-medium">
-            Rezerwacje · +48 71 000 00 00
+            Rezerwacje · +48 12 345 67 89
           </p>
           <div className="flex items-center gap-3">
             <span className="block w-4 h-px bg-[#f5f0e8]/40" />
             <p className="font-inter text-[10px] tracking-[0.2em] uppercase text-[#f5f0e8]/80">
-              Pon – Nd · 12:00 – 20:00
+              Pon – Nd · 12:00 – 22:00
             </p>
             <span className="block w-4 h-px bg-[#f5f0e8]/40" />
           </div>
@@ -34,26 +33,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <div className="relative w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
-                <Image
-                  src="/logo.jpg"
-                  alt="MOLTO Mi logo"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative h-12 w-[160px]">
-                <Image
-                  src="/drugielogo-removebg-preview.png"
-                  alt="Molto Mi – Kuchnia Włoska"
-                  fill
-                  className="object-contain object-left"
-                />
+              <div className="w-14 h-14 rounded-full bg-[#c4622d]/20 border border-[#c4622d]/40 flex items-center justify-center text-3xl flex-shrink-0">
+                🍕
               </div>
             </div>
             <p className="font-inter text-xs text-[#d4c9b0] leading-loose max-w-xs mb-4">
               Kuchnia włoska — prosta, autentyczna,
-              pełna kulinarnych doznań. Od 2023 · Wrocław.
+              pełna kulinarnych doznań.
             </p>
             <div className="flex gap-0.5">
               <span className="block w-5 h-1 bg-[#009246]" />
@@ -88,35 +74,31 @@ export default function Footer() {
               Znajdź nas
             </h4>
             <address className="not-italic space-y-2 mb-8">
-              <p className="font-inter text-sm text-[#d4c9b0]">ul. Brylantowa 16</p>
-              <p className="font-inter text-sm text-[#d4c9b0]">52-214 Wrocław</p>
+              <p className="font-inter text-sm text-[#d4c9b0]">ul. Przykładowa 1</p>
+              <p className="font-inter text-sm text-[#d4c9b0]">00-001 Warszawa</p>
               <p className="font-inter text-sm text-[#d4c9b0] mt-4">
-                <a href="tel:+48710000000" className="hover:text-[#c4622d] transition-colors">
-                  +48 71 000 00 00
+                <a href="tel:+48123456789" className="hover:text-[#c4622d] transition-colors">
+                  +48 12 345 67 89
                 </a>
               </p>
               <p className="font-inter text-sm text-[#d4c9b0]">
-                <a href="mailto:rezerwacje@moltomi.pl" className="hover:text-[#c4622d] transition-colors">
-                  rezerwacje@moltomi.pl
+                <a href="mailto:rezerwacje@restauracja.pl" className="hover:text-[#c4622d] transition-colors">
+                  rezerwacje@restauracja.pl
                 </a>
               </p>
             </address>
 
             <div className="flex gap-3">
               <a
-                href="https://www.instagram.com/moltomiwro/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram MOLTO Mi"
+                href="#"
+                aria-label="Instagram"
                 className="w-10 h-10 border border-[#2e2114] hover:border-[#c4622d] flex items-center justify-center text-[#d4c9b0] hover:text-[#c4622d] transition-all duration-300"
               >
                 <Share2 size={14} />
               </a>
               <a
-                href="https://www.facebook.com/MOLTOMIWRO"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook MOLTO Mi"
+                href="#"
+                aria-label="Facebook"
                 className="w-10 h-10 border border-[#2e2114] hover:border-[#c4622d] flex items-center justify-center text-[#d4c9b0] hover:text-[#c4622d] transition-all duration-300"
               >
                 <Globe size={14} />
@@ -128,10 +110,13 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-[#2e2114] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-inter text-[10px] text-[#4a3520]">
-            © {new Date().getFullYear()} MOLTO Mi · Wszelkie prawa zastrzeżone
+            © {new Date().getFullYear()} Restauracja · Wszelkie prawa zastrzeżone
+          </p>
+          <p className="font-inter text-[11px] text-[#d4c9b0]/50 tracking-[0.2em] uppercase text-center">
+            Pon–Nd · 12:00 – 22:00
           </p>
           <p className="font-inter text-[10px] text-[#4a3520]">
-            Wrocław, Polska
+            Warszawa, Polska
           </p>
         </div>
       </div>

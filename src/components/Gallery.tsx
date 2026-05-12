@@ -3,29 +3,28 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-// Mix of real MOLTO Mi photos (from restaurantguru) + Unsplash Italian fine dining
 const images = [
   {
-    src: "https://img02.restaurantguru.com/c62b-Restaurant-MOLTO-Mi-interior.jpg",
-    alt: "Wnętrze MOLTO Mi",
+    src: "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=900&q=80",
+    alt: "Wnętrze restauracji",
     span: "lg:col-span-2 lg:row-span-2",
     label: "Wnętrze",
   },
   {
-    src: "https://img02.restaurantguru.com/cd83-Restaurant-MOLTO-Mi-risotto.jpg",
-    alt: "Risotto MOLTO Mi",
+    src: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&q=80",
+    alt: "Risotto",
     span: "",
     label: "Risotto",
   },
   {
-    src: "https://img02.restaurantguru.com/c5bb-Restaurant-MOLTO-Mi-gnocchi.jpg",
-    alt: "Gnocchi MOLTO Mi",
+    src: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600&q=80",
+    alt: "Gnocchi",
     span: "",
     label: "Gnocchi",
   },
   {
-    src: "https://img02.restaurantguru.com/c6ff-Restaurant-MOLTO-Mi-mussels.jpg",
-    alt: "Mussels MOLTO Mi",
+    src: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=600&q=80",
+    alt: "Owoce morza",
     span: "",
     label: "Owoce morza",
   },
@@ -55,7 +54,7 @@ export default function Gallery() {
             Atmosfera
           </p>
           <h2 className="font-cormorant text-5xl md:text-7xl font-light text-[#f5f0e8] mb-4">
-            Galleria
+            Galeria
           </h2>
           <div className="italian-divider max-w-xs mx-auto">
             <span className="font-cormorant text-[#c4622d] px-2">✦</span>
@@ -104,7 +103,7 @@ export default function Gallery() {
           transition={{ delay: 0.8 }}
           className="text-center mt-10 font-inter text-[10px] tracking-[0.3em] uppercase text-[#d4c9b0]/50"
         >
-          Zdjęcia z restauracji MOLTO Mi · Wrocław
+          Galeria zdjęć restauracji
         </motion.p>
       </div>
     </section>
